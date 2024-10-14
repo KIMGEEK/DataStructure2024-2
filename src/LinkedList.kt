@@ -133,6 +133,72 @@ class LinkedList<T> : Iterable<T>, Collection<T> { // Collection 상속(Iterable
             this.tail = null
         return head.value
     }
+
+    fun printInReverse() {
+        this.nodeAt(0)?.printInReverse()
+    }
+
+    fun getMiddle(): Node<T>? {
+        var slow = this.nodeAt(0)
+        var fast = this.nodeAt(0)
+        while (fast != null) {
+            fast = fast.next
+            if (fast != null) {
+                fast = fast.next
+                slow = slow?.next
+            }
+        }
+        return slow
+    }
+
+    private fun addInReverse(list: LinkedList<T>, node: Node<T>) {
+        val next = node.next
+        if (next != null) {
+            addInReverse(list, next)
+        }
+        list.append(node.value)
+    }
+    fun reversed(): LinkedList<T> {
+        val result = LinkedList<T>()
+        val head = this.nodeAt(0)
+        if (head != null) {
+            addInReverse(result, head)
+        }
+        return result
+    }
+
+    private fun append(
+        result: LinkedList<T>,
+        node: Node<T>
+    ): Node<T>? {
+        result.append(node.value)
+        return node.next
+    }
+    fun mergeSorted(
+        otherList: LinkedList<T>
+    ): LinkedList<T> {
+        if (this.isEmpty()) {
+            return otherList
+        }
+        if (otherList.isEmpty()) { return this }
+        val result = LinkedList<T>()
+        var left = nodeAt(0)
+        var right = otherList.nodeAt(0)
+        while (left != null && right != null) {
+            if((left.value as Int) < (right.value as Int)) {
+                left = append(result, left)
+            } else {
+                right = append(result, right)
+            }
+        }
+        while (left != null) {
+            left = append(result, left)
+        }
+        while (right != null) {
+            right = append(result, right)
+        }
+        return result
+    }
 }
 
 class LinkedListIterator<K> (

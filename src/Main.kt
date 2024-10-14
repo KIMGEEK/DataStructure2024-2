@@ -84,11 +84,11 @@ fun foo(p: Predicate<Int>) = p(42)
 
 
 fun main() {
-    val f: (Int) -> Boolean = {it > 0}
+/*    val f: (Int) -> Boolean = {it > 0}
     println(foo(f))
 
     val p : Predicate<Int> = { it > 0 }
-    println(listOf(1, -2).filter(p))
+    println(listOf(1, -2).filter(p))*/
     /*var s1 = Smartphone("A32")
     s1.Inner().which_cpu() // 만들어지고 만드어진다
     //Smartphone.Inner().which_cpu() 에러 클래스에서 접근 불가
@@ -109,7 +109,7 @@ fun main() {
 
     Outer.Nested().accessCompanionMethod()*/
 
-    /*var f1 = Flower.bud.bloom("Rose") // 이미
+/*    var f1 = Flower.bud.bloom("Rose")
     var f2 = Flower.bloom("sunflower")
     println(f1)
     println(f2)*/
@@ -167,4 +167,60 @@ fun main() {
         bst.insert(it)
     }
     println(bst)*/
+
+    /*var o1: TestDataClass = TestDataClass(3, "Hello, world!")
+    println(o1)
+
+    var a = o1.component1()
+    println(a)*/
+
+ /*   var o1: TestDataClass = TestDataClass(1, "hi")
+    var o2: TestDataClass = TestDataClass(1, "hi")
+    o2.c = true
+
+    println(o1.equals(o2))
+    println(o2)*/
+
+   /* var o1: TestAbstClass = ChildOfAbstClass1()
+    println(o1)
+    println(o1.f1())
+    println(o1.f2()) // ?
+    var o2: TestAbstClass = ChildOfAbstClass2()
+    println(o2)
+    println(o2.f1())
+    println(o2.f2())
+    var o3 = ChildOfAbstClass1()
+    println(o3)
+    println(o3.f1())
+    println(o3.f2())
+    println(o3.f3())
+    var o4 = o3 as TestAbstClass
+    println(o4)
+    println(o4.f1())
+    println(o4.f2()) // why?*/
+
+    /*var o1: ChildOfInterface = ChildOfInterface(10)
+    println(o1)
+    println(o1.f1())
+    println(o1.f2("A"))
+    println(o1.f3("B"))
+    println(o1.f4())*/
+
+    /*var c1 = Cat(name="Tom", age=30)
+    c1.talk()*/
+    /*var tc = Man("Kevin", 23, "Student")
+    println(tc)
+    println(tc.age)
+    println(tc.job)
+    println(tc.address)
+    println(tc.strength)
+
+    tc.address = "Earth"
+    println(tc.address)
+
+    tc.cursed = true
+    println(tc.speed)*/
+    var list = LinkedList<Int>()
+    list.append(10).append(20).append(30)
+    println(list.getMiddle()?.value)
 }
